@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Personal Finance Tracker with AI Tips",
   "main": "index.tsx",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "build": "echo \"window.process = { env: { API_KEY: '$API_KEY' } };\" > env.js"
+    "clean": "rm -rf public",
+    "build": "npm run clean && mkdir -p public && cp -r index.html manifest.json index.tsx App.tsx types.ts constants.ts metadata.json services utils components public/ && echo \"window.process = { env: { API_KEY: '$API_KEY' } };\" > public/env.js"
   },
   "dependencies": {
     "react": "^19.0.0",
